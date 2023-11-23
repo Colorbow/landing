@@ -462,6 +462,34 @@ text-align: left;
   }
 }
 
+/* Estilos para la sección de FAQ */
+.faq {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934348739495799) 50%, rgba(252,176,69,1) 100%);
+color: white;
+}
+
+/* Estilos para los detalles (preguntas) */
+details {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Estilos para el resumen (títulos de preguntas) */
+summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Estilos para el contenido de las respuestas */
+details > p {
+  margin: 0;
+  padding: 10px 0;
+}
 
     </style>
 </head>
@@ -657,6 +685,32 @@ mostrarDiaEstimadoEntrega();
             </div>
         </div>
     </section>
+<section class="faq">
+  <details>
+    <summary>1. Envían a toda España?</summary>
+    <p>No, solamente enviamos a la Península. No a Ceuta, Melilla, Islas Baleares o Canarias.</p>
+  </details>
+
+  <details>
+    <summary>2. Puedo pagar en contra reembolso?</summary>
+    <p>Sí, queremos que te sientas seguro con nosotros y puedes pagar en el momento de la entrega. Recuerda tener el efectivo exacto cuando lo recibas, los repartidores no tienen obligación de tener cambio.</p>
+  </details>
+
+  <details>
+    <summary>3. Puedo cambiar la dirección o notificar que no voy a estar disponible.</summary>
+    <p>No te preocupes de nada, un equipo de soporte estará atento a tu pedido y te llamará de ser necesario. Recibirás SMS de Correos Express en los que puedes ponerte en contacto o directamente cambiar alguna información.</p>
+  </details>
+
+  <details>
+    <summary>4. Qué pasa si no recojo el pedido?</summary>
+    <p>Nos pondremos en contacto contigo, pero si no es por causa mayor, no podremos ofrecerte contra reembolso más veces; todo será por tarjeta o previo pago.</p>
+  </details>
+
+  <details>
+    <summary>5. Soy una tienda, ¿hay descuentos por cantidad?</summary>
+    <p>Sí, ponte en contacto con nosotros y si tus unidades superan las 20 unidades o lo que es lo mismo, 10 packs, puedes solicitar un descuento al por mayor.</p>
+  </details>
+</section>
 
 
     <script>
