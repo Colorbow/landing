@@ -284,8 +284,7 @@ a.next {
 /* Estilos para la sección de producto-info */
 .producto-info {
     text-align: center;
-    padding: 10px;
-    margin: 20px;
+    margin-top: 20px;
 }
 
 .producto-info p {
@@ -324,7 +323,6 @@ a.next {
 .producto-info ul {
     list-style: none;
     padding: 0;
-    text-align: left;
 }
 
 .producto-info ul li {
@@ -334,7 +332,12 @@ a.next {
     align-items: center;
 }
 
-
+.producto-info ul li::before {
+    content: "✔️ ";
+    margin-right: 5px;
+    font-size: 18px;
+    color: #007bff; /* Color del icono de verificación */
+}
 
 .producto-info h3 {
     font-size: 20px;
@@ -356,40 +359,29 @@ a.next {
     margin-top: 10px;
 }
 
-
-/* Estilos responsivos */
+/* Estilos para hacer responsive */
 @media (max-width: 768px) {
-    .container{
-        flex-direction: column;
-        }
 
+    .container{
+    flex-direction: column;
+}
     .producto-info {
         text-align: center;
     }
-    
+
     .producto-info h1 {
         font-size: 22px;
     }
 
-    .producto-info ul {
-        padding-left: 0;
+    .producto-info .colors {
+        flex-wrap: wrap;
     }
 
-    .producto-info li {
-        font-size: 14px;
-        margin-bottom: 8px;
-    }
-
-    .producto-info h3 {
-        font-size: 18px;
-        margin-top: 16px;
-    }
-
-    .comprar-btn {
-        font-size: 16px;
-        margin-top: 16px;
+    .producto-info .color {
+        margin: 10px;
     }
 }
+
     </style>
 </head>
 <body>
