@@ -565,24 +565,25 @@ mostrarDiaEstimadoEntrega();
 </script>
                 <p>⭐⭐⭐⭐ 18k+ Glowing Customers</p>
                 <h1>FitsFace Contour Mask</h1>
-               <div class="colors">
-    <div class="color" onclick="mostrarColor('rosa')" id="rosaColor">
-        <div class="color-circle" style="background-color: pink;"></div>
-        <span>Rosa</span>
-    </div>
-    <div class="color" onclick="mostrarColor('blanco')" id="blancoColor">
-        <div class="color-circle" style="background-color: white;"></div>
-        <span>Blanco</span>
-    </div>
-    <div class="color" onclick="mostrarColor('negro')" id="negroColor">
-        <div class="color-circle" style="background-color: black;"></div>
-        <span>Negro</span>
-    </div>
-    <div class="color" onclick="mostrarColor('marron')" id="marronColor">
-        <div class="color-circle" style="background-color: brown;"></div>
-        <span>Marrón</span>
-    </div>
-</div>
+             <div class="colors">
+                <div class="color" onclick="mostrarColor('rosa')" id="rosaColor">
+                    <div class="color-circle" style="background-color: pink;"></div>
+                    <span>Rosa</span>
+                </div>
+                <div class="color" onclick="mostrarColor('blanco')" id="blancoColor">
+                    <div class="color-circle" style="background-color: white;"></div>
+                    <span>Blanco</span>
+                </div>
+                <div class="color" onclick="mostrarColor('negro')" id="negroColor">
+                    <div class="color-circle" style="background-color: black;"></div>
+                    <span>Negro</span>
+                </div>
+                <div class="color" onclick="mostrarColor('marron')" id="marronColor">
+                    <div class="color-circle" style="background-color: brown;"></div>
+                    <span>Marrón</span>
+                </div>
+            </div>
+
 
                 <ul>
                     <li>Envíos 24/48 horas en su domicilio.</li>
@@ -638,7 +639,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showImage(currentIndex);
 });
 
-// Función para mostrar el color seleccionado y aplicar el borde
+// Función para mostrar el color seleccionado y aplicar el borde al .color-circle
 function mostrarColor(color) {
     // Ocultar todas las imágenes
     document.getElementById('rosa').style.display = 'none';
@@ -649,15 +650,16 @@ function mostrarColor(color) {
     // Mostrar la imagen correspondiente al color seleccionado
     document.getElementById(color).style.display = 'block';
 
-    // Eliminar la clase 'selected' de todos los elementos de color
-    var elementosColor = document.querySelectorAll('.color');
-    elementosColor.forEach(function (elemento) {
+    // Eliminar la clase 'selected' de todos los elementos .color-circle
+    var elementosColorCircle = document.querySelectorAll('.color-circle');
+    elementosColorCircle.forEach(function (elemento) {
         elemento.classList.remove('selected');
     });
 
-    // Agregar la clase 'selected' al elemento de color clicado
-    document.getElementById(color + 'Color').classList.add('selected');
+    // Agregar la clase 'selected' al .color-circle del elemento de color clicado
+    document.getElementById(color + 'Color').querySelector('.color-circle').classList.add('selected');
 }
+
 
     </script>
 </body>
