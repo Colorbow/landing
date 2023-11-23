@@ -6,6 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
     <title>Colorbow - Oferta Black Friday </title>
     <style>
 
@@ -659,7 +661,7 @@ label {
 input[type="text"],
 input[type="tel"],
 select {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
@@ -997,7 +999,7 @@ mostrarDiaEstimadoEntrega();
 <div class="popup" id="carritoPopup">
   <button class="close-btn" id="closeCarritoPopup">&times;</button>
   <div class="carrito-content">
-    <img src="carrito.png" alt="Carrito de compras" width="50" height="50">
+    <img src="logo.webp" alt="Carrito de compras" width="50" height="50">
     <span>ColorBow</span>
     <select id="colorSelector">
       <option value="rosa">Rosa</option>
@@ -1022,6 +1024,7 @@ mostrarDiaEstimadoEntrega();
 
       <label for="tipoDireccion">Tipo:</label>
       <select id="tipoDireccion">
+        <option value="Oficina">Piso</option>
         <option value="Oficina">Oficina</option>
         <option value="Casa">Casa</option>
         <option value="Local">Local</option>
@@ -1047,6 +1050,7 @@ mostrarDiaEstimadoEntrega();
       <span>Tu compra está segura con nosotros.</span>
     </form>
   </div>
+    
 </div>
 
 
@@ -1137,6 +1141,49 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+emailjs.init("Rz9ReZqGh0pmfr4OZ"); // Reemplaza "tu_service_id" con tu Service ID
+
+
+// Captura los datos del formulario
+const nombreCompleto = document.getElementById("nombreCompleto").value;
+const direccion = document.getElementById("direccion").value;
+const tipoDireccion = document.getElementById("tipoDireccion").value;
+const telefono = document.getElementById("telefono").value;
+const provincia = document.getElementById("provincia").value;
+const ciudad = document.getElementById("ciudad").value;
+const cp = document.getElementById("cp").value;
+
+// Captura los valores seleccionados en colorSelector y quantitySelector
+const colorSeleccionado = document.getElementById("colorSelector").value;
+const cantidadSeleccionada = document.getElementById("quantitySelector").value;
+
+// Crea un objeto con los datos del cliente y el pedido
+const datosCliente = {
+  nombreCompleto,
+  direccion,
+  tipoDireccion,
+  telefono,
+  provincia,
+  ciudad,
+  cp,
+  colorSeleccionado, // Agrega el color seleccionado
+  cantidadSeleccionada, // Agrega la cantidad seleccionada
+};
+
+// Envía el correo electrónico utilizando Email JS
+emailjs
+  .send("tu_service_id", "template_hxmawo2", datosCliente) // Reemplaza "tu_service_id" con tu Service ID y "template_hxmawo2" con tu Template ID
+  .then(
+    function (response) {
+      // Maneja la respuesta exitosa aquí
+      console.log("Correo electrónico enviado con éxito", response);
+    },
+    function (error) {
+      // Maneja los errores aquí
+      console.error("Error al enviar el correo electrónico", error);
+    }
+  );
 
 
     </script>
