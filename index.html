@@ -483,6 +483,66 @@ a.next {
                 </div>
             </div>
             <div class="producto-info">
+    <style>
+/* Estilos para centrar y hacer responsive la sección de envío */
+.seccion-envio {
+  text-align: center; /* Centra el contenido horizontalmente */
+  padding: 20px; /* Agrega un espacio alrededor del contenido para mejorar la legibilidad */
+  max-width: 600px; /* Define un ancho máximo para el contenido para hacerlo responsive */
+  margin: 0 auto; /* Centra la sección horizontalmente en pantallas más anchas */
+}
+
+/* Estilos para el texto dentro de la sección */
+.seccion-envio h1 {
+  font-size: 24px;
+}
+
+/* Estilos para el span que contiene la fecha estimada */
+#fecha-estimada {
+  font-size: 18px; /* Tamaño de fuente para la fecha estimada */
+}
+
+</style>
+<div class="seccion-envio">
+  <h1>Compra Hoy y te llega <span id="fecha-estimada"></span></h1>
+</div>
+<script>
+// Función para calcular y mostrar el día estimado de entrega
+function mostrarDiaEstimadoEntrega() {
+  function sumarDias(fecha, dias) {
+    fecha.setDate(fecha.getDate() + dias);
+    return fecha;
+  }
+
+  function formatoFecha(fecha) {
+    var opciones = { weekday: 'long', day: 'numeric', month: 'long' };
+    return fecha.toLocaleDateString('es-ES', opciones);
+  }
+
+  let fecha = new Date(); // Fecha actual
+  var diaSemana = fecha.getDay(); // 0 = domingo, 1 = lunes, etc.
+
+  // Si es viernes, establecer la fecha de entrega al martes de la semana siguiente
+  if (diaSemana === 5) {
+    fecha = sumarDias(fecha, 4); // Sumar 4 días para llegar al martes
+  } else if (diaSemana === 6) {
+    fecha = sumarDias(fecha, 3);
+  } else if (diaSemana === 0) {
+    fecha = sumarDias(fecha, 2);
+  } else {
+    fecha = sumarDias(fecha, 1); // Sumar 1 día para llegar al día siguiente
+  }
+
+  var fechaEntrega = fecha;
+  var fechaSimplificada = formatoFecha(fechaEntrega);
+
+  // Muestra la fecha estimada en el lugar deseado (por ejemplo, en un elemento con el ID "fecha-estimada")
+  document.getElementById("fecha-estimada").textContent = fechaSimplificada;
+}
+
+// Llama a la función para mostrar el día estimado de entrega cuando sea necesario
+mostrarDiaEstimadoEntrega();
+</script>
                 <p>⭐⭐⭐⭐ 18k+ Glowing Customers</p>
                 <h1>FitsFace Contour Mask</h1>
                 <div class="colors">
