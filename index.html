@@ -1281,21 +1281,20 @@ mostrarDiaEstimadoEntrega();
       <span>Tu compra está segura con nosotros.</span>
     </form>
   </div>
-    <div class="correcto" style="display: none; background: white;">
-      <img src="tick.png" alt="Pedido realizado correctamente">
-    <section class="suerte">
-    <div class="wheel-container">
-        <div class="wheel" id="wheel"></div>
-    </div>
-    <button id="spin-btn">Probar Suerte</button>
-    <div id="resultado" style="display: none;">
-    <span id="mensajePremio"></span>
-    <button id="agregarPedido">Añadir a mi Pedido</button>
-    <a href="#" id="noGracias">No, gracias</a>
-</div>
-</section>
-
-</div>
+         <div class="correcto" style="display: none; background: white;">
+            <img src="tick.png" alt="Pedido realizado correctamente">
+            <section class="suerte">
+                <div class="wheel-container">
+                    <div class="wheel" id="wheel"></div>
+                </div>
+                <button id="spin-btn">Probar Suerte</button>
+                <div id="resultado" style="display: none;">
+                    <span id="mensajePremio"></span>
+                    <button id="agregarPedido">Añadir a mi Pedido</button>
+                    <a href="#" id="noGracias">No, gracias</a>
+                </div>
+            </section>
+        </div>
 </div>
 
 <footer>
@@ -1622,19 +1621,19 @@ if (datosPedidoJSON) {
     });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const premio = document.getElementById("premio");
+    const wheel = document.getElementById("wheel");
+    const spinBtn = document.getElementById("spin-btn");
     const resultado = document.getElementById("resultado");
     const mensajePremio = document.getElementById("mensajePremio");
-    const probarSuerte = document.getElementById("probarSuerte");
     const agregarPedido = document.getElementById("agregarPedido");
     const noGracias = document.getElementById("noGracias");
 
-    let girando = false;
+    let spinning = false;
 
-    probarSuerte.addEventListener("click", function () {
-        if (!girando) {
+    spinBtn.addEventListener("click", function () {
+        if (!spinning) {
             girarRueda();
-            girando = true;
+            spinning = true;
         }
     });
 
@@ -1650,43 +1649,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function girarRueda() {
-        const gradosPorSegundo = 360;
-        const duracionGiro = 5; // 5 segundos
-        const pasos = gradosPorSegundo * duracionGiro;
-
-        let gradosActuales = 0;
-        const intervalo = setInterval(function () {
-            premio.style.transform = `rotate(${gradosActuales}deg)`;
-            gradosActuales += gradosPorSegundo;
-
-            if (gradosActuales >= pasos) {
-                clearInterval(intervalo);
-                premio.style.transform = `rotate(${gradosActuales % 360}deg)`;
-                mostrarResultado();
-            }
-        }, 1000);
-    }
-
-    function mostrarResultado() {
-        resultado.style.display = "block";
-        mensajePremio.textContent = "Has tenido mucha suerte, no suele tocar esta oferta";
-        mensajePremio.style.color = "green";
-    }
-});
-
-const wheel = document.getElementById('wheel');
-const spinBtn = document.getElementById('spin-btn');
-const options = [
-    'Pack de 5 peines profesionales por 34,99€',
-    '2 Unidades a 19,99€',
-];
-
-
-
-let spinning = false;
-
-spinBtn.addEventListener('click', () => {
-    if (!spinning) {
         const randomDegree = Math.floor(Math.random() * 360);
         const spinDuration = 2000; // Tiempo en milisegundos para una vuelta completa (3 veces más rápido)
 
@@ -1697,20 +1659,21 @@ spinBtn.addEventListener('click', () => {
         setTimeout(() => {
             const prizeIndex = Math.floor(randomDegree / (360 / options.length));
             const prize = options[prizeIndex];
-            prizeText.textContent = `Has ganado: ${prize}`;
-            popup.style.display = 'block';
+            mensajePremio.textContent = `Has ganado: ${prize}`;
+            resultado.style.display = 'block';
 
             // Desactivar la opción seleccionada
             options.splice(prizeIndex, 1);
-            updateOptionsDropdown();
-
-            // Mostrar el elemento con el ID "resultado"
-            document.getElementById('resultado').style.display = 'block';
 
             spinning = false;
         }, spinDuration);
     }
 });
+
+const options = [
+    'Pack de 5 peines profesionales por 34,99€',
+    '2 Unidades a 19,99€',
+];
 
 
     </script>
