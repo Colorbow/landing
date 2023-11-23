@@ -260,6 +260,73 @@ a.next {
     right: 10px;
 }
 
+
+        .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Estilos para la sección de producto */
+#producto {
+    text-align: center;
+}
+
+.producto-imagen img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #333;
+    padding: 10px;
+}
+
+.producto-info {
+    margin-left: 20px;
+    text-align: left;
+}
+
+.producto-info p {
+    font-size: 18px;
+}
+
+.producto-info h1 {
+    font-size: 24px;
+}
+
+.producto-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.producto-info li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.producto-info li img {
+    margin-right: 10px;
+}
+
+.producto-info h3 {
+    font-size: 20px;
+}
+
+.comprar-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.descuento {
+    font-size: 14px;
+    margin-top: 10px;
+}
     </style>
 </head>
 <body>
@@ -342,6 +409,31 @@ a.next {
             </div>
         </div>
     </section>
+
+<section id="producto">
+        <div class="container">
+            <div class="producto-imagen">
+                <img src="producto.png" alt="Producto">
+                <div class="carousel">
+                    <!-- Aquí puedes agregar las imágenes del carrusel si es necesario -->
+                </div>
+            </div>
+            <div class="producto-info">
+                <p>⭐⭐⭐⭐ 18k+ Glowing Customers</p>
+                <h1>FitsFace Contour Mask</h1>
+                <ul>
+                    <li><img src="tick-icon.png" alt="Icono de verificación"> Promotes healthier, younger-looking skin;</li>
+                    <li><img src="tick-icon.png" alt="Icono de verificación"> Stimulates collagen production;</li>
+                    <li><img src="tick-icon.png" alt="Icono de verificación"> Toned facial muscles;</li>
+                </ul>
+                <h3>Precio: 24,99€</h3>
+                <button class="comprar-btn">Comprar ahora</button>
+                <span class="descuento">O pagar con tarjeta con 10% de descuento</span>
+            </div>
+        </div>
+    </section>
+
+
     <script>
         // JavaScript para alternar la visibilidad del menú en dispositivos móviles
         const hamburgerIcon = document.querySelector(".hamburger-icon");
