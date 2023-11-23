@@ -1012,22 +1012,25 @@ function mostrarColor(color) {
 
 
 
-const latidoBtn = document.querySelector('.latido .comprar-btn');
-const carritoPopup = document.getElementById('carritoPopup');
-const agregarCarritoBtn = document.getElementById('agregarCarrito');
-const closeCarritoPopupBtn = document.getElementById('closeCarritoPopup');
+document.addEventListener('DOMContentLoaded', function () {
+  // Tu código JavaScript aquí
+  const latidoBtn = document.querySelector('.latido .comprar-btn');
+  const carritoPopup = document.getElementById('carritoPopup');
+  const agregarCarritoBtn = document.getElementById('agregarCarrito');
+  const closeCarritoPopupBtn = document.getElementById('closeCarritoPopup');
 
-latidoBtn.addEventListener('click', () => {
-  carritoPopup.style.display = 'block';
-});
+  latidoBtn.addEventListener('click', () => {
+    carritoPopup.style.display = 'block';
+  });
 
-closeCarritoPopupBtn.addEventListener('click', () => {
-  carritoPopup.style.display = 'none';
-});
+  closeCarritoPopupBtn.addEventListener('click', () => {
+    carritoPopup.style.display = 'none';
+  });
 
-agregarCarritoBtn.addEventListener('click', () => {
-  // Agregar lógica para agregar el producto al carrito aquí
-  carritoPopup.style.display = 'none'; // Cierra el pop-up después de agregar al carrito
+  agregarCarritoBtn.addEventListener('click', () => {
+    // Agregar lógica para agregar el producto al carrito aquí
+    carritoPopup.style.display = 'none'; // Cierra el pop-up después de agregar al carrito
+  });
 });
 
 
