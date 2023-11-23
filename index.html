@@ -68,6 +68,65 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934
             font-size: 13px;
     margin: 0;
         }
+
+
+ /* Estilos para la sección de producto */
+        .producto {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas en dispositivos pequeños */
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .texto-producto {
+            flex: 1;
+            padding: 20px;
+            background-color: #F0F0F0;
+        }
+
+        .texto-producto h2 {
+            font-size: 24px;
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        .texto-producto p {
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        .texto-producto p.subrayado {
+            text-decoration: underline;
+        }
+
+        .imagen-producto {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .imagen-producto img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .producto {
+                flex-direction: column; /* Apila elementos en dispositivos pequeños */
+                text-align: center; /* Centra el texto en dispositivos pequeños */
+            }
+
+            .texto-producto {
+                padding: 10px; /* Ajusta el espaciado interior en dispositivos pequeños */
+            }
+
+            .imagen-producto {
+                padding: 10px; /* Ajusta el espaciado interior en dispositivos pequeños */
+            }
+        }
         /* Estilos adicionales según sea necesario */
     </style>
 </head>
@@ -86,8 +145,21 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934
         <div class="hamburger-icon">&#9776;</div>
     </header>
 
-    <!-- Resto del contenido de tu sitio web -->
-
+  <section class="producto">
+        <div class="texto-producto">
+            <h2>18k+ Glowing Customers</h2>
+            <p>#1 Toning Device</p>
+            <p>Introducing FitsFace Contour Mask—a dermatologist-recommended wearable beauty device with clinically proven results for anti-aging and skin rejuvenation.</p>
+            <p>Toned Jawline area ;</p>
+            <p>Reduce Chubby Cheeks;</p>
+            <p>Toned facial muscles;</p>
+            <p class="subrayado">TRANSFORM MY SKIN</p>
+            <p>FREE Shipping | 30-Day Money-Back Guarantee</p>
+        </div>
+        <div class="imagen-producto">
+            <img src="tu-imagen.jpg" alt="Imagen del producto">
+        </div>
+    </section>
     <script>
         // JavaScript para alternar la visibilidad del menú en dispositivos móviles
         const hamburgerIcon = document.querySelector(".hamburger-icon");
