@@ -462,13 +462,17 @@ text-align: left;
   }
 }
 
+.box-faq{
+ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934348739495799) 50%, rgba(252,176,69,1) 100%);
+color: white;
+}
+
 /* Estilos para la sección de FAQ */
 .faq {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934348739495799) 50%, rgba(252,176,69,1) 100%);
-color: white;
+ 
 }
 
 /* Estilos para los detalles (preguntas) */
@@ -685,7 +689,8 @@ mostrarDiaEstimadoEntrega();
             </div>
         </div>
     </section>
-<section class="faq">
+<section class="box-faq">
+<div class="faq">
   <details>
     <summary>1. Envían a toda España?</summary>
     <p>No, solamente enviamos a la Península. No a Ceuta, Melilla, Islas Baleares o Canarias.</p>
@@ -710,8 +715,9 @@ mostrarDiaEstimadoEntrega();
     <summary>5. Soy una tienda, ¿hay descuentos por cantidad?</summary>
     <p>Sí, ponte en contacto con nosotros y si tus unidades superan las 20 unidades o lo que es lo mismo, 10 packs, puedes solicitar un descuento al por mayor.</p>
   </details>
-</section>
+</div>
 
+</section>
 
     <script>
         // JavaScript para alternar la visibilidad del menú en dispositivos móviles
