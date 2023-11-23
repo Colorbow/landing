@@ -402,6 +402,11 @@ a.next {
     }
 }
 
+/* CSS para el borde seleccionado */
+.color.selected {
+    border: 1px solid black;
+}
+
     </style>
 </head>
 <body>
@@ -559,24 +564,25 @@ mostrarDiaEstimadoEntrega();
 </script>
                 <p>⭐⭐⭐⭐ 18k+ Glowing Customers</p>
                 <h1>FitsFace Contour Mask</h1>
-                <div class="colors">
-                    <div class="color" onclick="mostrarColor('rosa')">
-                        <div class="color-circle" style="background-color: pink;"></div>
-                        <span>Rosa</span>
-                    </div>
-                    <div class="color" onclick="mostrarColor('blanco')">
-                        <div class="color-circle" style="background-color: white;"></div>
-                        <span>Blanco</span>
-                    </div>
-                    <div class="color" onclick="mostrarColor('negro')">
-                        <div class="color-circle" style="background-color: black;"></div>
-                        <span>Negro</span>
-                    </div>
-                    <div class="color" onclick="mostrarColor('marron')">
-                        <div class="color-circle" style="background-color: brown;"></div>
-                        <span>Marrón</span>
-                    </div>
-                </div>
+               <div class="colors">
+    <div class="color" onclick="mostrarColor('rosa')" id="rosaColor">
+        <div class="color-circle" style="background-color: pink;"></div>
+        <span>Rosa</span>
+    </div>
+    <div class="color" onclick="mostrarColor('blanco')" id="blancoColor">
+        <div class="color-circle" style="background-color: white;"></div>
+        <span>Blanco</span>
+    </div>
+    <div class="color" onclick="mostrarColor('negro')" id="negroColor">
+        <div class="color-circle" style="background-color: black;"></div>
+        <span>Negro</span>
+    </div>
+    <div class="color" onclick="mostrarColor('marron')" id="marronColor">
+        <div class="color-circle" style="background-color: brown;"></div>
+        <span>Marrón</span>
+    </div>
+</div>
+
                 <ul>
                     <li>Envíos 24/48 horas en su domicilio.</li>
                     <li>Disponible en contra reembolso (paga en el momento que te entrega el repartidor)</li>
@@ -631,16 +637,26 @@ document.addEventListener("DOMContentLoaded", function () {
     showImage(currentIndex);
 });
 
+// Función para mostrar el color seleccionado y aplicar el borde
 function mostrarColor(color) {
-            // Ocultar todas las imágenes
-            document.getElementById('rosa').style.display = 'none';
-            document.getElementById('blanco').style.display = 'none';
-            document.getElementById('negro').style.display = 'none';
-            document.getElementById('marron').style.display = 'none';
+    // Ocultar todas las imágenes
+    document.getElementById('rosa').style.display = 'none';
+    document.getElementById('blanco').style.display = 'none';
+    document.getElementById('negro').style.display = 'none';
+    document.getElementById('marron').style.display = 'none';
 
-            // Mostrar la imagen correspondiente al color seleccionado
-            document.getElementById(color).style.display = 'block';
-        }
+    // Mostrar la imagen correspondiente al color seleccionado
+    document.getElementById(color).style.display = 'block';
+
+    // Eliminar la clase 'selected' de todos los elementos de color
+    var elementosColor = document.querySelectorAll('.color');
+    elementosColor.forEach(function (elemento) {
+        elemento.classList.remove('selected');
+    });
+
+    // Agregar la clase 'selected' al elemento de color clicado
+    document.getElementById(color + 'Color').classList.add('selected');
+}
 
     </script>
 </body>
