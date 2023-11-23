@@ -765,7 +765,8 @@ br {
 </head>
 <body>
       <section class="banner">
-        <h2>BLACK FRIDAY - CÓDIGO DE DESCUENTO: BLACKCOLOR10</h2>
+        <h2>BLACK FRIDAY - OFERTA COLORBOW
+        </h2>
     </section>
     <header class="header">
         <img src="logo.webp" alt="Logo de tu sitio web" class="logo">
@@ -782,12 +783,12 @@ br {
         <div class="texto-producto">
             <h2>ColorBow es la marca Estadounidense que más está creciendo en España</h2>
             <p>#1 Top Ventas en Amazon</p>
-            <p>Introducing FitsFace Contour Mask—a dermatologist-recommended wearable beauty device with clinically proven results for anti-aging and skin rejuvenation.</p>
-            <p>Toned Jawline area ;</p>
-            <p>Reduce Chubby Cheeks;</p>
-            <p>Toned facial muscles;</p>
+            <p>Consigue resultados profesionales desde casa.</p>
+            <p>Paga en la entrega ;</p>
+            <p>El producto más demandado por los centros de belleza;</p>
+            <p>Miles de Clientes satisfechos;</p>
              <a href="#producto" class="boton-subrayado">TRANSFORMAR MI PELO</a>
-            <p>FREE Shipping | 30-Day Money-Back Guarantee</p>
+            <p>Envío Gratis Hoy | 30-Day Money-Back Guarantee</p>
         </div>
         <div class="imagen-producto">
             <img src="colorbow.png" alt="Imagen del producto">
@@ -951,7 +952,7 @@ mostrarDiaEstimadoEntrega();
                 </ul>
                 <h3>Precio: 24,99€</h3>
                 <button class="comprar-btn">Comprar ahora en Contra reembolso</button>
-                <span class="descuento">O pagar con tarjeta con 10% de descuento</span>
+                <span class="descuento">Envío Gratuito. Iva incluido </span>
             </div>
         </div>
     </section>
@@ -1041,7 +1042,7 @@ mostrarDiaEstimadoEntrega();
 <div class="popup" id="carritoPopup">
   <button class="close-btn" id="closeCarritoPopup">&times;</button>
   <div class="carrito-content">
-    <img src="logo.webp" alt="Carrito de compras" width="50" height="50">
+    <img src="logo.webp" alt="Carrito de compras">
     <span>ColorBow</span>
     <select id="colorSelector">
       <option value="rosa">Rosa</option>
@@ -1092,7 +1093,7 @@ mostrarDiaEstimadoEntrega();
       <span>Tu compra está segura con nosotros.</span>
     </form>
   </div>
-    <div class="correcto" style="display: none">
+    <div class="correcto" style="display: none; background: white;">
       <img src="tick.png" alt="Pedido realizado correctamente">
     <h1>Tu pedido ha sido correctamente realizado</h1>
     <p>Detalles del pedido:</p>
@@ -1174,7 +1175,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Tu código JavaScript aquí
   const latidoBtn = document.querySelector('.comprar-btn');
   const carritoPopup = document.getElementById('carritoPopup');
-  const agregarCarritoBtn = document.getElementById('agregarCarrito');
   const closeCarritoPopupBtn = document.getElementById('closeCarritoPopup');
 
   latidoBtn.addEventListener('click', () => {
@@ -1183,11 +1183,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   closeCarritoPopupBtn.addEventListener('click', () => {
     carritoPopup.style.display = 'none';
-  });
-
-  agregarCarritoBtn.addEventListener('click', () => {
-    // Agregar lógica para agregar el producto al carrito aquí
-    carritoPopup.style.display = 'none'; // Cierra el pop-up después de agregar al carrito
   });
 });
 
