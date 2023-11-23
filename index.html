@@ -931,6 +931,56 @@ footer {
             font-size: 24px;
             cursor: pointer;
         }
+
+.suerte {
+    text-align: center;
+    margin-top: 20px;
+background: white;
+color: black
+}
+
+#premio img {
+    width: 200px;
+}
+
+#probarSuerte {
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#resultado {
+    display: none;
+    margin-top: 20px;
+}
+
+#mensajePremio {
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+    margin-bottom: 10px;
+}
+
+#agregarPedido {
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#noGracias {
+    font-size: 18px;
+    text-decoration: none;
+    color: gray;
+    margin-left: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -1267,7 +1317,18 @@ mostrarDiaEstimadoEntrega();
       <img src="tick.png" alt="Pedido realizado correctamente">
    
 </div>
-    <div class="upsell" style="display: none"></div>
+   <section class="suerte">
+    <div id="premio">
+        <img src="wheel.png" alt="Rueda de la Fortuna">
+        <button id="probarSuerte">Probar Suerte</button>
+    </div>
+    <div id="resultado">
+        <span id="mensajePremio"></span>
+        <button id="agregarPedido">Añadir a mi Pedido</button>
+        <a href="#" id="noGracias">No, gracias</a>
+    </div>
+</section>
+
 </div>
 
 <footer>
@@ -1569,7 +1630,6 @@ if (datosPedidoJSON) {
     );
 });
 
-<script>
     // Obtén una referencia al elemento del pop-up y al botón de cerrar
     const popup = document.querySelector('.popup-legal');
     const cerrarPopup = document.getElementById('cerrarlegal');
@@ -1593,7 +1653,59 @@ if (datosPedidoJSON) {
         // Cierra el pop-up
         popup.style.display = 'none';
     });
-</script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const premio = document.getElementById("premio");
+    const resultado = document.getElementById("resultado");
+    const mensajePremio = document.getElementById("mensajePremio");
+    const probarSuerte = document.getElementById("probarSuerte");
+    const agregarPedido = document.getElementById("agregarPedido");
+    const noGracias = document.getElementById("noGracias");
+
+    let girando = false;
+
+    probarSuerte.addEventListener("click", function () {
+        if (!girando) {
+            girarRueda();
+            girando = true;
+        }
+    });
+
+    agregarPedido.addEventListener("click", function () {
+        // Aquí puedes agregar la lógica para añadir el producto al pedido
+        // Por ejemplo, mostrar un mensaje de confirmación o realizar una acción específica.
+        mensajePremio.textContent = "Producto agregado al pedido.";
+        mensajePremio.style.color = "green";
+    });
+
+    noGracias.addEventListener("click", function () {
+        resultado.style.display = "none";
+    });
+
+    function girarRueda() {
+        const gradosPorSegundo = 360;
+        const duracionGiro = 5; // 5 segundos
+        const pasos = gradosPorSegundo * duracionGiro;
+
+        let gradosActuales = 0;
+        const intervalo = setInterval(function () {
+            premio.style.transform = `rotate(${gradosActuales}deg)`;
+            gradosActuales += gradosPorSegundo;
+
+            if (gradosActuales >= pasos) {
+                clearInterval(intervalo);
+                premio.style.transform = `rotate(${gradosActuales % 360}deg)`;
+                mostrarResultado();
+            }
+        }, 1000);
+    }
+
+    function mostrarResultado() {
+        resultado.style.display = "block";
+        mensajePremio.textContent = "Has tenido mucha suerte, no suele tocar esta oferta";
+        mensajePremio.style.color = "green";
+    }
+});
 
 
 
