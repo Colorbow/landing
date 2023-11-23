@@ -609,6 +609,44 @@ color: white;
 }
 
 
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.carrito-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.carrito-content img {
+  display: block;
+  margin: 0 auto;
+}
+
+.carrito-content select, .carrito-content button {
+  margin: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -886,7 +924,29 @@ mostrarDiaEstimadoEntrega();
     </div>
 </div>
 
+<div class="popup" id="carritoPopup">
+  <button class="close-btn" id="closeCarritoPopup">&times;</button>
+  <div class="carrito-content">
+    <img src="carrito.png" alt="Carrito de compras" width="50" height="50">
+    <span>ColorBow</span>
+    <select id="colorSelector">
+      <option value="rosa">Rosa</option>
+      <option value="blanco">Blanco</option>
+      <option value="negro">Negro</option>
+      <option value="marron">Marrón</option>
+    </select>
+    <select id="quantitySelector">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    <button id="agregarCarrito">Agregar al carrito</button>
+  </div>
+</div>
 
+
+    
 
     <script>
         // JavaScript para alternar la visibilidad del menú en dispositivos móviles
@@ -949,6 +1009,30 @@ function mostrarColor(color) {
     // Agregar la clase 'selected' al .color-circle del elemento de color clicado
     document.getElementById(color + 'Color').querySelector('.color-circle').classList.add('selected');
 }
+
+
+const latidoBtn = document.querySelector('.latido .comprar-btn');
+const carritoPopup = document.getElementById('carritoPopup');
+const agregarCarritoBtn = document.getElementById('agregarCarrito');
+
+const latidoBtn = document.querySelector('.latido .comprar-btn');
+const carritoPopup = document.getElementById('carritoPopup');
+const agregarCarritoBtn = document.getElementById('agregarCarrito');
+const closeCarritoPopupBtn = document.getElementById('closeCarritoPopup');
+
+latidoBtn.addEventListener('click', () => {
+  carritoPopup.style.display = 'block';
+});
+
+closeCarritoPopupBtn.addEventListener('click', () => {
+  carritoPopup.style.display = 'none';
+});
+
+agregarCarritoBtn.addEventListener('click', () => {
+  // Agregar lógica para agregar el producto al carrito aquí
+  carritoPopup.style.display = 'none'; // Cierra el pop-up después de agregar al carrito
+});
+
 
 
     </script>
