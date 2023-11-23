@@ -609,6 +609,7 @@ color: white;
 }
 
 
+/* Estilos para el popup de carrito */
 .popup {
   display: none;
   position: fixed;
@@ -616,27 +617,96 @@ color: white;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  text-align: center;
+  overflow: auto;
 }
 
 .carrito-content {
   background-color: white;
   padding: 20px;
-  border-radius: 5px;
-  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Estilos para el formulario */
+form {
+  font-size: 18px;
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button.comprar-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.comprar-btn:hover {
+  background-color: #0056b3;
+}
+
+span {
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Estilos para el contenido del carrito */
 .carrito-content img {
   display: block;
   margin: 0 auto;
 }
 
-.carrito-content select, .carrito-content button {
-  margin: 10px;
+.carrito-content span {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0;
 }
+
+/* Estilos para el hr y br */
+hr {
+  margin-top: 20px;
+}
+
+br {
+  margin-top: 10px;
+}
+
 
 .close-btn {
   position: absolute;
@@ -941,7 +1011,41 @@ mostrarDiaEstimadoEntrega();
       <option value="3">3</option>
       <option value="4">4</option>
     </select>
-    <button id="agregarCarrito">Agregar al carrito</button>
+    <hr> <!-- Agrega el hr -->
+    <br> <!-- Agrega el br -->
+    <form>
+      <label for="nombreCompleto">Nombre Completo:</label>
+      <input type="text" id="nombreCompleto" placeholder="Nombre y Apellidos" required>
+
+      <label for="direccion">Dirección completa:</label>
+      <input type="text" id="direccion" required>
+
+      <label for="tipoDireccion">Tipo:</label>
+      <select id="tipoDireccion">
+        <option value="Oficina">Oficina</option>
+        <option value="Casa">Casa</option>
+        <option value="Local">Local</option>
+        <option value="Negocio">Negocio</option>
+        <option value="Chalet">Chalet</option>
+      </select>
+
+      <label for="telefono">Número de Teléfono:</label>
+      <input type="tel" id="telefono" placeholder="Tu teléfono principal" required>
+
+      <span>Nos pondremos en contacto por teléfono para confirmar tu pedido, SMS de seguimiento. Muy importante facilitar contacto correcto.</span>
+
+      <label for="provincia">Provincia:</label>
+      <input type="text" id="provincia" required>
+
+      <label for="ciudad">Ciudad:</label>
+      <input type="text" id="ciudad" required>
+
+      <label for="cp">CP:</label>
+      <input type="text" id="cp" required>
+
+      <button class="comprar-btn">Comprar Ahora</button>
+      <span>Tu compra está segura con nosotros.</span>
+    </form>
   </div>
 </div>
 
