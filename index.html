@@ -1660,12 +1660,10 @@ if (datosPedidoJSON) {
   // Agrega los detalles del pedido al elemento "correcto"
   correctoDiv.appendChild(detallesPedido);
 
-  setTimeout(function () {
-  const correctoDiv = document.querySelector(".correcto");
-  correctoDiv.style.display = "block";
-}, 7000); // 7 segundos
-
-
+setTimeout(function () {
+            correctoDiv.style.display = "block";
+          }, 7000); // 7 segundos
+        }
      // Activa el evento de conversión de Facebook "purchase"
       fbq('track', 'Purchase', {
         value: 24.99, // Reemplaza con el valor total de la compra
