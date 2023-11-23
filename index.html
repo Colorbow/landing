@@ -933,53 +933,20 @@ footer {
             cursor: pointer;
         }
 
-.suerte {
-    text-align: center;
-    margin-top: 20px;
-background: white;
-color: black
+.wheel-container {
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    height: 300px;
 }
 
-#premio img {
-    width: 200px;
-}
-
-#probarSuerte {
-    background-color: green;
-    color: white;
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-#resultado {
-    display: none;
-    margin-top: 20px;
-}
-
-#mensajePremio {
-    font-size: 24px;
-    font-weight: bold;
-    color: green;
-    margin-bottom: 10px;
-}
-
-#agregarPedido {
-    background-color: green;
-    color: white;
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-#noGracias {
-    font-size: 18px;
-    text-decoration: none;
-    color: gray;
-    margin-left: 10px;
+.wheel {
+    width: 100%;
+    height: 100%;
+    background-image: url(wheel.png);
+    background-size: cover;
+    transform-origin: center center;
+    transition: transform 6s ease-in-out;
 }
 
     </style>
@@ -1316,20 +1283,19 @@ mostrarDiaEstimadoEntrega();
   </div>
     <div class="correcto" style="display: none; background: white;">
       <img src="tick.png" alt="Pedido realizado correctamente">
-   
+    <section class="suerte">
+    <div class="wheel-container">
+        <div class="wheel" id="wheel"></div>
+    </div>
+    <button id="spin-btn">Probar Suerte</button>
+    <div id="resultado" style="display: none;">
+    <span id="mensajePremio"></span>
+    <button id="agregarPedido">Añadir a mi Pedido</button>
+    <a href="#" id="noGracias">No, gracias</a>
 </div>
-   <section class="suerte">
-    <div id="premio">
-        <img src="wheel.png" alt="Rueda de la Fortuna">
-        <button id="probarSuerte">Probar Suerte</button>
-    </div>
-    <div id="resultado">
-        <span id="mensajePremio"></span>
-        <button id="agregarPedido">Añadir a mi Pedido</button>
-        <a href="#" id="noGracias">No, gracias</a>
-    </div>
 </section>
 
+</div>
 </div>
 
 <footer>
@@ -1708,6 +1674,45 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+const wheel = document.getElementById('wheel');
+const spinBtn = document.getElementById('spin-btn');
+const popup = document.getElementById('popup');
+const prizeText = document.getElementById('prize');
+const options = [
+    'Pack de 5 peines profesionales por 34,99€',
+    '2 Unidades a 19,99€',
+];
+
+
+
+let spinning = false;
+
+spinBtn.addEventListener('click', () => {
+    if (!spinning) {
+        const randomDegree = Math.floor(Math.random() * 360);
+        const spinDuration = 2000; // Tiempo en milisegundos para una vuelta completa (3 veces más rápido)
+
+        spinning = true;
+        wheel.style.transition = `transform ${spinDuration}ms cubic-bezier(0.17, 0.67, 0.83, 0.67)`;
+        wheel.style.transform = `rotate(${randomDegree}deg)`;
+
+        setTimeout(() => {
+            const prizeIndex = Math.floor(randomDegree / (360 / options.length));
+            const prize = options[prizeIndex];
+            prizeText.textContent = `Has ganado: ${prize}`;
+            popup.style.display = 'block';
+
+            // Desactivar la opción seleccionada
+            options.splice(prizeIndex, 1);
+            updateOptionsDropdown();
+
+            // Mostrar el elemento con el ID "resultado"
+            document.getElementById('resultado').style.display = 'block';
+
+            spinning = false;
+        }, spinDuration);
+    }
+});
 
 
     </script>
