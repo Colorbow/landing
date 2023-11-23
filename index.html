@@ -448,7 +448,10 @@ a.next {
 <section id="producto">
         <div class="container">
             <div class="producto-imagen">
-                <img src="producto.png" alt="Producto">
+                <img src="rosa.png" id="rosa">
+                 <img src="blanco.png" id="blanco" display="none">
+                 <img src="negro.png" id="negro" display="none">
+                 <img src="marron.png" id="marron" display="none">
                 <div class="carousel">
                     <!-- Aquí puedes agregar las imágenes del carrusel si es necesario -->
                 </div>
@@ -456,6 +459,24 @@ a.next {
             <div class="producto-info">
                 <p>⭐⭐⭐⭐ 18k+ Glowing Customers</p>
                 <h1>FitsFace Contour Mask</h1>
+                <div class="colors">
+                    <div class="color" onclick="mostrarColor('rosa')">
+                        <div class="color-circle" style="background-color: pink;"></div>
+                        <span>Rosa</span>
+                    </div>
+                    <div class="color" onclick="mostrarColor('blanco')">
+                        <div class="color-circle" style="background-color: white;"></div>
+                        <span>Blanco</span>
+                    </div>
+                    <div class="color" onclick="mostrarColor('negro')">
+                        <div class="color-circle" style="background-color: black;"></div>
+                        <span>Negro</span>
+                    </div>
+                    <div class="color" onclick="mostrarColor('marron')">
+                        <div class="color-circle" style="background-color: brown;"></div>
+                        <span>Marrón</span>
+                    </div>
+                </div>
                 <ul>
                     <li>✔️ Envíos 24/48 horas en su domicilio.</li>
                     <li>✔️ Disponible en contra reembolso (paga en el momento que te entrega el repartidor)</li>
@@ -509,6 +530,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     showImage(currentIndex);
 });
+
+function mostrarColor(color) {
+            // Ocultar todas las imágenes
+            document.getElementById('rosa').style.display = 'none';
+            document.getElementById('blanco').style.display = 'none';
+            document.getElementById('negro').style.display = 'none';
+            document.getElementById('marron').style.display = 'none';
+
+            // Mostrar la imagen correspondiente al color seleccionado
+            document.getElementById(color).style.display = 'block';
+        }
 
     </script>
 </body>
