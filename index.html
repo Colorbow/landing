@@ -1657,18 +1657,18 @@ if (datosPedidoJSON) {
     <a href="https://wa.me/34679638692" class="btn-whatsapp">Soporte WhatsApp</a>
   `;
 
-  // Agrega los detalles del pedido al elemento "correcto"
+   // Agrega los detalles del pedido al elemento "correcto"
   correctoDiv.appendChild(detallesPedido);
 
-
-            correctoDiv.style.display = "block";
-         
+  // Muestra el elemento "correcto" con la información del pedido
+  correctoDiv.style.display = "block";
+}
      // Activa el evento de conversión de Facebook "purchase"
       fbq('track', 'Purchase', {
         value: 24.99, // Reemplaza con el valor total de la compra
         currency: 'EUR', // Reemplaza con la moneda utilizada
       });
-    ,
+    },
       function (error) {
         // Maneja los errores aquí
         console.error("Error al enviar el correo electrónico", error);
