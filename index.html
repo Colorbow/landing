@@ -721,6 +721,46 @@ br {
   border: none;
   cursor: pointer;
 }
+
+/* Estilos para el elemento .correcto */
+.correcto {
+  display: none; /* Inicialmente oculto */
+  text-align: center; /* Centra el contenido horizontalmente */
+  padding: 20px; /* Espaciado interno */
+}
+
+.correcto img {
+  width: 50px; /* Ancho de la imagen */
+  height: 50px; /* Altura de la imagen */
+}
+
+.correcto h1 {
+  font-size: 24px; /* Tamaño de fuente del encabezado */
+  margin-top: 10px; /* Espacio superior del encabezado */
+}
+
+.correcto p {
+  font-size: 16px; /* Tamaño de fuente del párrafo */
+  margin-top: 10px; /* Espacio superior del párrafo */
+}
+
+/* Estilos para el botón de WhatsApp */
+.btn-whatsapp {
+  display: inline-block;
+  background-color: #25d366; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  text-decoration: none; /* Elimina subrayado del enlace */
+  border-radius: 5px; /* Borde redondeado */
+  font-size: 16px; /* Tamaño de fuente del botón */
+  margin-top: 20px; /* Espacio superior del botón */
+}
+
+/* Estilos para el botón de WhatsApp al pasar el mouse */
+.btn-whatsapp:hover {
+  background-color: #128c7e; /* Color de fondo del botón al pasar el mouse */
+}
+
     </style>
 </head>
 <body>
@@ -1052,7 +1092,15 @@ mostrarDiaEstimadoEntrega();
       <span>Tu compra está segura con nosotros.</span>
     </form>
   </div>
-    
+    <div class="correcto" style="display: none">
+      <img src="tick.png" alt="Pedido realizado correctamente">
+    <h1>Tu pedido ha sido correctamente realizado</h1>
+    <p>Detalles del pedido:</p>
+    <!-- Aquí puedes imprimir los detalles del pedido utilizando JavaScript -->
+    <p>Si deseas cambiar alguna información o cancelar, por favor ponte en contacto con nosotros vía WhatsApp:</p>
+    <a href="https://wa.me/34679638692" class="btn-whatsapp">Soporte WhatsApp</a>
+</div>
+    <div class="upsell" style="display: none"></div>
 </div>
 
 
@@ -1178,8 +1226,8 @@ emailjs
   .send("tu_service_id", "template_hxmawo2", datosCliente) // Reemplaza "tu_service_id" con tu Service ID y "template_hxmawo2" con tu Template ID
   .then(
     function (response) {
-      // Maneja la respuesta exitosa aquí
-      console.log("Correo electrónico enviado con éxito", response);
+       document.querySelector(".carrito-content").style.display = "none";
+  document.querySelector(".correcto").style.display = "block";
     },
     function (error) {
       // Maneja los errores aquí
