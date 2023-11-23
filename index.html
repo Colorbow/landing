@@ -762,121 +762,139 @@ br {
 }
 
 
-/* Apply a background color and styling to the footer */
+        /* Estilos para el footer */
 footer {
-  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934348739495799) 50%, rgba(252,176,69,1) 100%);
-   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-    color: white; 
-padding: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
 }
-
-/* Style the footer links section */
 .footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 20px;
+    text-align: start;
 }
-
-.footer-links h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
+/* Estilos para los enlaces del footer */
 .footer-links ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
-.footer-links li {
-  margin-bottom: 10px;
+.footer-links ul li {
+    margin-bottom: 10px;
 }
 
 .footer-links a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  padding: 10px; /* Agregamos padding para dispositivos móviles */
-  display: block; /* Hacer que los enlaces ocupen todo el ancho en dispositivos móviles */
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
 }
 
-/* Style the footer newsletter section */
-.footer-newsletter {
-  margin-bottom: 20px;
+.footer-links a:hover {
+    text-decoration: underline;
 }
 
+/* Estilos para la sección de garantías */
+.footer-garantias {
+    margin-top: 20px;
+}
+
+/* Estilos para la sección de newsletter */
 .footer-newsletter h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
 }
 
-.footer-newsletter form {
-  display: flex;
-  align-items: center;
-}
 
 .footer-newsletter input[type="email"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  margin-right: 10px;
+    width: 250px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    margin-right: 10px;
 }
 
 .footer-newsletter button {
-  background-color: #FF5733;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
 }
 
-/* Style the payment icons */
-.footer-garantias {
-  display: flex;
-  justify-content: center;
+.footer-newsletter button:hover {
+    background-color: #ccc;
 }
 
+/* Estilos para la sección de métodos de pago */
+.footer-pagos {
+    margin-top: 20px;
+}
+
+/* Estilos para los logos de métodos de pago */
+.footer-pagos img {
+    margin-right: 10px;
+}
+
+/* Estilo básico para los íconos de pago */
 .icon--payment {
-  margin: 0 10px;
+  display: inline-block;
+  margin-right: 10px; /* Espacio entre los íconos */
+  width: 40px; /* Ancho del ícono */
+  height: 24px; /* Alto del ícono */
 }
 
-/* Add media queries for responsiveness */
-@media screen and (max-width: 768px) {
-  .footer-links {
-    flex-direction: column;
-    align-items: center; /* Centrar elementos en dispositivos móviles */
+/* Cambiar el color de relleno de los íconos */
+.icon--payment svg {
+  fill: #333; /* Cambia el color a tu preferencia */
+}
+
+/* Cambiar el color de fondo al pasar el mouse por encima */
+.icon--payment:hover {
+  background-color: #f0f0f0; /* Cambia el color a tu preferencia */
+}
+
+        
+@media screen and (max-width: 820px) {
+  /* Estilos para cuando la pantalla tiene un ancho mínimo de 820px */
+
+  /* Cambiar el display del footer a block */
+  footer {
+    display: block;
+      background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934348739495799) 50%, rgba(252,176,69,1) 100%);
   }
 
+    .footer-links h4{
+    text-align: center;
+}
+
+  /* Centrar el texto en ul dentro de .footer-links */
   .footer-links ul {
     text-align: center;
   }
 
-  .footer-links li {
-    margin: 0;
-  }
-
+  /* Estilos para el formulario dentro de .footer-newsletter */
   .footer-newsletter form {
-    flex-direction: column;
-    align-items: stretch;
+        display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .footer-newsletter input[type="email"] {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  /* Redimensionar las imágenes en dispositivos móviles */
+  /* Estilos para las imágenes dentro de .footer-pagos */
   .footer-pagos img {
-    max-width: 100px; /* Ajusta el tamaño máximo según tus necesidades */
-    height: auto;
+    width: 100%;
   }
-}
+
+.footer-newsletter button {
+    font-size: 9px;
+    }
+
 
 .whatsapp {
   position: fixed;
