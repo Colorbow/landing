@@ -156,6 +156,18 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934
             height: auto;
         }
 
+/* Estilos responsivos para dispositivos pequeños */
+        @media (max-width: 768px) {
+            .ventajas {
+                flex-direction: column; /* Apila elementos en dispositivos pequeños */
+                text-align: center; /* Centra el texto en dispositivos pequeños */
+            }
+
+            .ventaja {
+                padding: 10px; /* Ajusta el espaciado interior en dispositivos pequeños */
+            }
+        }
+
 /* Estilos para la sección de proceso */
         .proceso {
             display: flex;
