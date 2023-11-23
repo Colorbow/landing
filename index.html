@@ -933,6 +933,26 @@ footer {
             cursor: pointer;
         }
 
+/* Estilo para el contenedor principal */
+.correcto {
+    display: none;
+    background: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilo para el título "Enhorabuena tu pedido ha sido el Nº 1000 de Nuestra Tienda" */
+.correcto h1 {
+    font-size: 24px;
+    color: #333; /* Color del texto */
+}
+
+/* Estilo para la sección de la rueda de la fortuna */
+.suerte {
+    margin-top: 20px;
+}
+
+/* Estilo para el contenedor de la rueda */
 .wheel-container {
     display: inline-block;
     position: relative;
@@ -940,14 +960,71 @@ footer {
     height: 300px;
 }
 
+/* Estilo para la rueda */
 .wheel {
     width: 100%;
     height: 100%;
-    background-image: url(wheel4.png);
+    background-image: url('wheel.png'); /* Ruta de la imagen de la rueda */
     background-size: cover;
     transform-origin: center center;
     transition: transform 6s ease-in-out;
 }
+
+/* Estilo para el botón "Probar Suerte" */
+#spin-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#spin-btn:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el mouse sobre el botón */
+}
+
+/* Estilo para el contenedor del resultado */
+#resultado {
+    display: none;
+    margin-top: 20px;
+}
+
+/* Estilo para el mensaje del premio */
+#mensajePremio {
+    font-size: 20px;
+    color: #4CAF50; /* Color del mensaje de premio */
+    font-weight: bold;
+}
+
+/* Estilo para el botón "Añadir a mi Pedido" */
+#agregarPedido {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#agregarPedido:hover {
+    background-color: #45a049; /* Cambio de color al pasar el mouse sobre el botón */
+}
+
+/* Estilo para el enlace "No, gracias" */
+#noGracias {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #007bff; /* Color del enlace */
+    text-decoration: none;
+}
+
+#noGracias:hover {
+    text-decoration: underline; /* Subrayar el enlace al pasar el mouse sobre él */
+}
+
 
     </style>
 </head>
@@ -1282,7 +1359,7 @@ mostrarDiaEstimadoEntrega();
     </form>
   </div>
          <div class="correcto" style="display: none; background: white;">
-            <img src="tick.png" alt="Pedido realizado correctamente">
+            <h1>Enhorabuena tu pedido ha sido el Nº 1000 de Nuestra Tienda</h1>
             <section class="suerte">
                 <div class="wheel-container">
                     <div class="wheel" id="wheel"></div>
@@ -1294,6 +1371,7 @@ mostrarDiaEstimadoEntrega();
                     <a href="#" id="noGracias">No, gracias</a>
                 </div>
             </section>
+            <img src="tick.png" alt="Pedido realizado correctamente">
         </div>
 </div>
 
