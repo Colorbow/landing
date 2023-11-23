@@ -356,13 +356,27 @@ max-width: 1000px;
 }
 
 .producto-info .comprar-btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    margin-top: 20px;
-    cursor: pointer;
+  background-color: red; /* Color del botón */
+  color: white; /* Color del texto del botón */
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+  animation: latido 2s infinite; /* Aplicar la animación al botón */
+}
+
+/* Animación de latido */
+@keyframes latido {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .producto-info .descuento {
@@ -407,6 +421,47 @@ max-width: 1000px;
 .color.selected {
     border: 1px solid black;
 }
+
+/* Estilos para el contenedor del efecto de latido */
+.latido {
+  width: 300px;
+  height: 150px;
+  background-color: red;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: latido 2s infinite;
+}
+
+/* Estilos para el contenido dentro del div latido */
+.contenido {
+  text-align: center;
+}
+
+.contenido h2 {
+  font-size: 24px;
+  color: white;
+}
+
+.contenido span {
+  font-size: 14px;
+  color: white;
+}
+
+/* Animación de latido */
+@keyframes latido {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 
     </style>
 </head>
@@ -563,6 +618,13 @@ function mostrarDiaEstimadoEntrega() {
 // Llama a la función para mostrar el día estimado de entrega cuando sea necesario
 mostrarDiaEstimadoEntrega();
 </script>
+                <div class="latido">
+  <div class="contenido">
+    <h2>PACK 2 X 1</h2>
+    <span>Compra 1 y llégate 2</span>
+  </div>
+</div>
+
                 <p>⭐⭐⭐⭐ 18k+ Glowing Customers</p>
                 <h1>FitsFace Contour Mask</h1>
              <div class="colors">
