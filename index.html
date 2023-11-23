@@ -1376,7 +1376,7 @@ mostrarDiaEstimadoEntrega();
 </div>
 
 <footer>
-    <div class="footer-links">
+    <div class="footer-links" id="footerlinks">
         <h4>Información</h4>
         <ul>
             <li><a href="#faq">Preguntas Frecuentes</a></li>
@@ -1679,18 +1679,14 @@ if (datosPedidoJSON) {
     const cerrarPopup = document.getElementById('cerrarlegal');
 
     // Obtén una lista de todos los enlaces con la clase "popup-link"
-    const enlacesPopup = document.querySelectorAll('.popup-link');
+    const footerlinks =  document.getElementById('.footer-links');
 
     // Agrega un manejador de eventos clic para cada enlace
-    enlacesPopup.forEach(enlace => {
-        enlace.addEventListener('click', (event) => {
-            // Evita la acción predeterminada del enlace (evita la navegación)
-            event.preventDefault();
+   footerlinks.addEventListener("click", function () {
 
             // Muestra el pop-up
             popup.style.display = 'block';
         });
-    });
 
     // Agrega un manejador de eventos clic para el botón de cerrar
     cerrarPopup.addEventListener('click', () => {
