@@ -1195,7 +1195,7 @@ const comprarAhoraBtn = document.getElementById("comprarahora");
 comprarAhoraBtn.addEventListener("click", function (event) {
   event.preventDefault(); // Previene el envío del formulario por defecto
 
-  // Captura los datos del formulario
+  // Captura los valores de los campos del formulario
   const nombreCompleto = document.getElementById("nombreCompleto").value;
   const direccion = document.getElementById("direccion").value;
   const tipoDireccion = document.getElementById("tipoDireccion").value;
@@ -1203,10 +1203,24 @@ comprarAhoraBtn.addEventListener("click", function (event) {
   const provincia = document.getElementById("provincia").value;
   const ciudad = document.getElementById("ciudad").value;
   const cp = document.getElementById("cp").value;
-
-  // Captura los valores seleccionados en colorSelector y quantitySelector
   const colorSeleccionado = document.getElementById("colorSelector").value;
   const cantidadSeleccionada = document.getElementById("quantitySelector").value;
+
+  // Verifica que todos los campos obligatorios estén completados
+  if (
+    nombreCompleto === "" ||
+    direccion === "" ||
+    tipoDireccion === "" ||
+    telefono === "" ||
+    provincia === "" ||
+    ciudad === "" ||
+    cp === "" ||
+    colorSeleccionado === "" ||
+    cantidadSeleccionada === ""
+  ) {
+    alert("Por favor, completa todos los campos del formulario.");
+    return; // Detiene el proceso si falta algún campo
+  }
 
   // Crea un objeto con los datos del cliente y el pedido
   const datosCliente = {
@@ -1236,6 +1250,7 @@ comprarAhoraBtn.addEventListener("click", function (event) {
       }
     );
 });
+
 
 
 
