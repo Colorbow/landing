@@ -1758,7 +1758,7 @@ agregarPedidoBtn.addEventListener("click", function (event) {
 
   // Recopila la información que deseas incluir en el correo
   const premio = document.getElementById('mensajePremio');
-
+const datosPedidoJSON = localStorage.getItem("pedido");
 
   // Crea un objeto con los datos que enviarás a Email JS
   const datosCorreo2 = {
