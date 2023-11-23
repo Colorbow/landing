@@ -874,7 +874,12 @@ padding: 10px;
   }
 }
 
-
+.whatsapp {
+  position: fixed;
+  bottom: 10px;
+  right: 10px; /* Cambia este valor según tu preferencia de posición horizontal */
+  z-index: 999; /* Asegura que el botón esté por encima de otros elementos */
+}
     </style>
 </head>
 <body>
@@ -885,8 +890,8 @@ padding: 10px;
     <header class="header">
         <img src="logo.webp" alt="Logo de tu sitio web" class="logo">
         <ul class="menu">
-            <li><a href="#catalogo">Catálogo</a></li>
-            <li><a href="#precios">Precios</a></li>
+            <li><a href="#producto">Catálogo</a></li>
+            <li><a href="#producto">Precios</a></li>
             <li><a href="#faq">Preguntas Frecuentes</a></li>
         </ul>
         <!-- Ícono de hamburguesa para dispositivos móviles -->
@@ -1070,20 +1075,20 @@ mostrarDiaEstimadoEntrega();
             </div>
         </div>
     </section>
-<section class="box-faq">
+<section class="box-faq" id="faq">
 <div class="faq">
   <details>
-    <summary>1. Envían a toda España?</summary>
+    <summary>1. ¿Envían a toda España?</summary>
     <p>No, solamente enviamos a la Península. No a Ceuta, Melilla, Islas Baleares o Canarias.</p>
   </details>
 
   <details>
-    <summary>2. Puedo pagar en contra reembolso?</summary>
+    <summary>2. ¿Puedo pagar en contra reembolso?</summary>
     <p>Sí, queremos que te sientas seguro con nosotros y puedes pagar en el momento de la entrega. Recuerda tener el efectivo exacto cuando lo recibas, los repartidores no tienen obligación de tener cambio.</p>
   </details>
 
   <details>
-    <summary>3. Puedo cambiar la dirección o notificar que no voy a estar disponible.</summary>
+    <summary>3. ¿Puedo cambiar la dirección o notificar que no voy a estar disponible.</summary>
     <p>No te preocupes de nada, un equipo de soporte estará atento a tu pedido y te llamará de ser necesario. Recibirás SMS de Correos Express en los que puedes ponerte en contacto o directamente cambiar alguna información.</p>
   </details>
 
@@ -1262,7 +1267,9 @@ mostrarDiaEstimadoEntrega();
 
 
 </footer>
-    
+ <a class="whatsapp" href="https://api.whatsapp.com/send?phone=+34679638692&text=Quiero%20un%20pedido%20de%20Colorbow" target="_blank">
+    <img src="https://i.postimg.cc/1tmJyjNG/whatsapp2.png" alt="WhatsApp" style="width: 50px; height:50px; position: fixed; bottom: 10px; left: 5px;">
+  </a>   
 
     <script>
         // JavaScript para alternar la visibilidad del menú en dispositivos móviles
