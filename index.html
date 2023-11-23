@@ -1236,6 +1236,9 @@ comprarAhoraBtn.addEventListener("click", function (event) {
     cantidadSeleccionada,
   };
 
+// Guarda los datos del pedido en el localStorage con la clave "pedido"
+  localStorage.setItem("pedido", JSON.stringify(datosCliente));
+
   // Envía el correo electrónico utilizando Email JS
   emailjs
     .send("service_xfezawx", "template_hxmawo2", datosCliente)
@@ -1243,7 +1246,38 @@ comprarAhoraBtn.addEventListener("click", function (event) {
       function (response) {
         // Oculta el contenido del carrito y muestra la confirmación
         document.querySelector(".carrito-content").style.display = "none";
-        document.querySelector(".correcto").style.display = "block";
+        // Obtén los datos del pedido guardados en el localStorage
+const datosPedidoJSON = localStorage.getItem("pedido");
+if (datosPedidoJSON) {
+  const datosPedido = JSON.parse(datosPedidoJSON);
+
+  // Accede a los elementos HTML donde deseas mostrar la información
+  const correctoDiv = document.querySelector(".correcto");
+  const detallesPedido = document.createElement("div");
+
+  // Agrega los detalles del pedido al elemento HTML
+  detallesPedido.innerHTML = `
+    <h1>Tu pedido ha sido correctamente realizado</h1>
+    <p>Detalles del pedido:</p>
+    <p><strong>Nombre Completo:</strong> ${datosPedido.nombreCompleto}</p>
+    <p><strong>Dirección:</strong> ${datosPedido.direccion}</p>
+    <p><strong>Tipo de Dirección:</strong> ${datosPedido.tipoDireccion}</p>
+    <p><strong>Teléfono:</strong> ${datosPedido.telefono}</p>
+    <p><strong>Provincia:</strong> ${datosPedido.provincia}</p>
+    <p><strong>Ciudad:</strong> ${datosPedido.ciudad}</p>
+    <p><strong>CP:</strong> ${datosPedido.cp}</p>
+    <p><strong>Color Seleccionado:</strong> ${datosPedido.colorSeleccionado}</p>
+    <p><strong>Cantidad Seleccionada:</strong> ${datosPedido.cantidadSeleccionada}</p>
+    <p>Si deseas cambiar alguna información o cancelar, por favor ponte en contacto con nosotros vía WhatsApp:</p>
+    <a href="https://wa.me/34679638692" class="btn-whatsapp">Soporte WhatsApp</a>
+  `;
+
+  // Agrega los detalles del pedido al elemento "correcto"
+  correctoDiv.appendChild(detallesPedido);
+
+  // Muestra el elemento "correcto" con la información del pedido
+  correctoDiv.style.display = "block";
+}
      // Activa el evento de conversión de Facebook "purchase"
       fbq('track', 'Purchase', {
         value: 24.99, // Reemplaza con el valor total de la compra
