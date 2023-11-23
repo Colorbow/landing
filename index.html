@@ -495,6 +495,59 @@ details > p {
   padding: 10px 0;
 }
 
+/* Estilos para la sección de propiedades */
+.propiedades {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten a una nueva fila en pantallas pequeñas */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Estilos para el contenido en el primer div */
+.propiedades-contenido {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.propiedades-contenido h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.propiedades-contenido p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Estilos para la imagen en el segundo div */
+.propiedades-imagen {
+  flex: 1;
+  text-align: center;
+}
+
+.propiedades-imagen img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilos para hacer la sección responsive en pantallas pequeñas */
+@media (max-width: 768px) {
+  .propiedades {
+    flex-direction: column; /* Cambia la dirección de flex a columna en pantallas pequeñas */
+    text-align: center;
+  }
+
+  .propiedades-contenido,
+  .propiedades-imagen {
+    flex: 1;
+    padding: 10px;
+  }
+}
+
+
     </style>
 </head>
 <body>
@@ -718,6 +771,23 @@ mostrarDiaEstimadoEntrega();
 </div>
 
 </section>
+
+
+
+<section class="propiedades">
+  <div class="propiedades-contenido">
+    <h1>Tu complemento Ideal</h1>
+    <p>Plancha de forma cómoda, solo tienes que seguir los pasos: 
+       1. Hacer clip en la zona del cuero cabelludo donde quiera comenzar a alisar,
+       2. Mantener solo la posición y
+       3. Comenzar a alisar sin perder la línea.</p>
+  </div>
+  <div class="propiedades-imagen">
+    <img src="banner1.jpg" alt="Banner 1">
+  </div>
+</section>
+
+
 
     <script>
         // JavaScript para alternar la visibilidad del menú en dispositivos móviles
