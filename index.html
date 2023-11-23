@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web</title>
+    <style>
+        /* Estilos CSS para la cabecera */
+        .header {
+            background-color: #333; /* Cambia el color de fondo según tus preferencias */
+            color: #fff; /* Cambia el color del texto según tus preferencias */
+            padding: 10px; /* Espaciado interior para el contenido de la cabecera */
+            display: flex; /* Para alinear elementos horizontalmente */
+            justify-content: space-between; /* Para espaciar el logo y la lista */
+            align-items: center; /* Para centrar verticalmente los elementos */
+        }
+
+        .logo {
+            width: 100px; /* Ajusta el ancho del logo según tus necesidades */
+        }
+
+        .menu {
+            list-style-type: none; /* Quita los marcadores de lista */
+            padding: 0; /* Quita el espaciado interior de la lista */
+            display: flex; /* Para alinear los elementos de la lista horizontalmente */
+        }
+
+        .menu li {
+            margin-right: 20px; /* Espaciado entre elementos de la lista */
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 768px) {
+            .menu {
+                display: none; /* Oculta la lista en dispositivos móviles */
+            }
+
+            .hamburger-icon {
+                display: block; /* Muestra el ícono de hamburguesa en dispositivos móviles */
+                cursor: pointer;
+                font-size: 24px;
+            }
+        }
+
+        /* Estilos adicionales según sea necesario */
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="tu-logo.png" alt="Logo de tu sitio web" class="logo">
+        <ul class="menu">
+            <li><a href="#">Catálogo</a></li>
+            <li><a href="#">Precios</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+        </ul>
+        <!-- Ícono de hamburguesa para dispositivos móviles -->
+        <div class="hamburger-icon">&#9776;</div>
+    </header>
+
+    <!-- Resto del contenido de tu sitio web -->
+
+    <script>
+        // JavaScript para alternar la visibilidad del menú en dispositivos móviles
+        const hamburgerIcon = document.querySelector(".hamburger-icon");
+        const menu = document.querySelector(".menu");
+
+        hamburgerIcon.addEventListener("click", () => {
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        });
+    </script>
+</body>
+</html>
