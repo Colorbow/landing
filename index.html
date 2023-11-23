@@ -198,6 +198,58 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934
             }
         }
 
+
+.resultados {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+.box-resultados {
+    margin: 20px auto;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilos para el carrusel */
+.carousel-container {
+    display: flex;
+    align-items: center;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.carousel img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+a.prev,
+a.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+a.prev {
+    left: 10px;
+}
+
+a.next {
+    right: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -262,6 +314,24 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934
             <h2>Paso 3: Colorea</h2>
         </div>
     </section>
+
+<section class="resultados">
+        <h1>Resultados</h1>
+        <div class="box-resultados">
+            <div class="carousel-container">
+                <a class="prev">&#8249;</a>
+                <div class="carousel">
+                    <img src="imagen1.jpg" alt="Imagen 1">
+                    <img src="imagen2.jpg" alt="Imagen 2">
+                    <img src="imagen3.jpg" alt="Imagen 3">
+                    <img src="imagen4.jpg" alt="Imagen 4">
+                    <img src="imagen5.jpg" alt="Imagen 5">
+                    <img src="imagen6.jpg" alt="Imagen 6">
+                </div>
+                <a class="next">&#8250;</a>
+            </div>
+        </div>
+    </section>
     <script>
         // JavaScript para alternar la visibilidad del menú en dispositivos móviles
         const hamburgerIcon = document.querySelector(".hamburger-icon");
@@ -270,6 +340,39 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934
         hamburgerIcon.addEventListener("click", () => {
             menu.style.display = menu.style.display === "block" ? "none" : "block";
         });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousel");
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+    const images = document.querySelectorAll(".carousel img");
+
+    let currentIndex = 0;
+
+    function showImage(index) {
+        if (index < 0) {
+            index = images.length - 1;
+        } else if (index >= images.length) {
+            index = 0;
+        }
+
+        const translateX = -index * 100 + "%";
+        carousel.style.transform = `translateX(${translateX})`;
+        currentIndex = index;
+    }
+
+    prevButton.addEventListener("click", () => {
+        showImage(currentIndex - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+        showImage(currentIndex + 1);
+    });
+
+    showImage(currentIndex);
+});
+
     </script>
 </body>
 </html>
