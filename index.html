@@ -966,7 +966,7 @@ footer {
 .wheel {
     width: 100%;
     height: 100%;
-    background-image: url('wheel.png'); /* Ruta de la imagen de la rueda */
+    background-image: url('wheel4.png'); /* Ruta de la imagen de la rueda */
     background-size: cover;
     transform-origin: center center;
     transition: transform 6s ease-in-out;
@@ -1660,10 +1660,9 @@ if (datosPedidoJSON) {
   // Agrega los detalles del pedido al elemento "correcto"
   correctoDiv.appendChild(detallesPedido);
 
-setTimeout(function () {
+
             correctoDiv.style.display = "block";
-          }, 7000); // 7 segundos
-        }
+         
      // Activa el evento de conversión de Facebook "purchase"
       fbq('track', 'Purchase', {
         value: 24.99, // Reemplaza con el valor total de la compra
@@ -1752,6 +1751,35 @@ const options = [
     'Pack de 2 a 19,99€',
 ];
 
+// Agrega un event listener al botón "Agregar a mi Pedido"
+const agregarPedidoBtn = document.getElementById("agregarPedido");
+agregarPedidoBtn.addEventListener("click", function (event) {
+  event.preventDefault(); // Previene el comportamiento predeterminado del botón
+
+  // Recopila la información que deseas incluir en el correo
+  const premio = document.getElementById('mensajePremio');
+
+
+  // Crea un objeto con los datos que enviarás a Email JS
+  const datosCorreo2 = {
+    premio,
+   datosPedidoJSON,
+  };
+
+  // Utiliza Email JS para enviar el correo electrónico
+  emailjs .send("service_xfezawx", "template_hxmawo2", datosCorreo2)
+    .then(function (response) {
+      // Aquí puedes agregar cualquier lógica adicional después de enviar el correo
+
+      // Por ejemplo, mostrar un mensaje de confirmación al usuario
+      alert("Artículo añadido");
+
+      // También puedes redirigir al usuario a una página de confirmación o realizar otras acciones según tus necesidades.
+    })
+    .catch(function (error) {
+      console.error("Error al enviar el correo electrónico:", error);
+    });
+});
 
     </script>
 
