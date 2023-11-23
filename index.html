@@ -137,8 +137,25 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934
             cursor: pointer;
         }
 
+  /* Estilos para la sección de ventajas */
+        .ventajas {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas en dispositivos pequeños */
+            justify-content: space-between; /* Espaciado entre las ventajas */
+            padding: 20px;
+        }
 
-        /* Estilos adicionales según sea necesario */
+        .ventaja {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .ventaja img {
+            max-width: 100%;
+            height: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -169,6 +186,20 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,201,0.9934
         </div>
         <div class="imagen-producto">
             <img src="colorbow.png" alt="Imagen del producto">
+        </div>
+    </section>
+<section class="ventajas">
+        <div class="ventaja">
+            <img src="colorbow2.png" alt="Clip y sujeta">
+            <h2>Un clip y sujeta</h2>
+        </div>
+        <div class="ventaja">
+            <img src="colorbow3.png" alt="Ahorra Tiempo">
+            <h2>Ahorra Tiempo</h2>
+        </div>
+        <div class="ventaja">
+            <img src="colorbow4.png" alt="Planchado Rápido y Secado de cabello">
+            <h2>Planchado Rápido y Secado de cabello</h2>
         </div>
     </section>
     <script>
