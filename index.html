@@ -1184,7 +1184,7 @@ function mostrarDiaEstimadoEntrega() {
 mostrarDiaEstimadoEntrega();
 </script>
                 <div class="latido">
-  <div class="contenido">
+  <div class="contenido comprar-btn">
     <h2>PACK 2 X 1</h2>
     <span>Compra 1 y llégate 2</span>
   </div>
@@ -1557,20 +1557,24 @@ function mostrarColor(color) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Tu código JavaScript aquí
-  const latidoBtn = document.querySelector('.comprar-btn');
+  // Obtener todos los elementos con la clase ".comprar-btn"
+  const latidoBtns = document.querySelectorAll('.comprar-btn');
   const carritoPopup = document.getElementById('carritoPopup');
   const closeCarritoPopupBtn = document.getElementById('closeCarritoPopup');
 
-  latidoBtn.addEventListener('click', () => {
-    carritoPopup.style.display = 'block';
-     fbq('track', 'InitiateCheckout');
+  // Iterar sobre todos los botones y agregar un evento click a cada uno
+  latidoBtns.forEach((latidoBtn) => {
+    latidoBtn.addEventListener('click', () => {
+      carritoPopup.style.display = 'block';
+      fbq('track', 'InitiateCheckout');
+    });
   });
 
   closeCarritoPopupBtn.addEventListener('click', () => {
     carritoPopup.style.display = 'none';
   });
 });
+
 
 
 emailjs.init("Rz9ReZqGh0pmfr4OZ"); // Reemplaza "tu_service_id" con tu Service ID
